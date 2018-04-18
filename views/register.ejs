@@ -1,0 +1,50 @@
+<% include partials/top %>
+
+<%try{%>
+    <% for(var i =0;i< errors.length;i++){%>
+        <div class="alert alert-danger"><%= errors[i].text %></div>
+    <%}%>
+<%}catch (err){}%>
+
+
+<div class="card card-body mt-3">
+    <form action="/user/register" method="POST">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" value="<%= (typeof name != "undefined" ? name : "")%>" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="name">UserName</label>
+            <input type="text" class="form-control" value="<%= (typeof username != "undefined" ? username : "")%>" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" value="<%= (typeof email != "undefined" ? email : "")%>" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" value="<%= (typeof password != "undefined" ? password : "")%>" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="passwordConf">Confirm Password</label>
+            <input type="password" class="form-control" value="<%= (typeof passwordConf != "undefined" ? passwordConf : "")%>"  name="passwordConf" required>
+        </div>
+        
+
+        <button type="submit" class="btn my-primary">Submit</button>
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/bottom %>

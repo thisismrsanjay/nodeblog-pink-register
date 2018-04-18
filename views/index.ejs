@@ -1,0 +1,37 @@
+<% include partials/top %>
+<% for(var i =0;i<articles.length;i++) {%>
+<div class="card mt-4 mb-4 ">
+    <h5 class="card-header"><%=articles[i].category%></h5>
+    <div class="card-body">
+      <h5 href="#"  data-toggle="modal" data-target="#<%= i %>" class="card-title"><%= articles[i].title %></h5>
+      <p class="card-text"><%=articles[i].body%></p>
+      <a href="#"  data-toggle="modal" data-target="#<%= i %>" >ReadMore...</a>
+    </div>
+    <div class="pr-3 pb-3"> <footer class="blockquote-footer text-right"> <cite title="Source Title"><%=articles[i].author%></cite></footer></div>
+   
+    
+</div>
+
+
+<div class="modal fade" id="<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= articles[i].title %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p><%=articles[i].body%></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% } %>
+<% include partials/bottom %>
